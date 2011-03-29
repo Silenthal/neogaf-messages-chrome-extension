@@ -1,0 +1,11 @@
+#smiliebox {
+	display: block;
+	width: 60px;
+	text-align: center;
+}
+#lol_smiley {
+	padding-right: 10px;
+}
+#lol_smiley, #grin_smiley {
+	cursor: pointer;
+}
