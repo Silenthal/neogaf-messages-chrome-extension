@@ -12,7 +12,7 @@
 	});
 	
 	$('#grin_smiley').click(function () {
-		$('textarea').append($('textarea').val() + '[img]' + grin_smiley + '[/img]');
+		$('textarea').val($('textarea').val() + '[img]' + grin_smiley + '[/img]');
 		$('textarea').focus();
 	});
 })();
