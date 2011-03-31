@@ -1,4 +1,4 @@
-This source code is licensed under the zlib license. The smilies are the property of Jelsoft Enterprises.
+This source code is licensed under the zlib license. Mail icon provided by Aleksandra Wolska, olawolska.com.
 
 This software is provided 'as-is', without any express or implied
 warranty.  In no event will the authors be held liable for any damages

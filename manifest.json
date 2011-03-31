@@ -1,13 +1,8 @@
 {
-	"name": "NeoGAF Smilies",
-	"version": "1.2",
-	"description": "Adds the classic smilies back in the new post and new thread pages on NeoGAF.",
-	"icons": { "48": "48.gif", "128": "128.gif" },
-	"content_scripts": [
-		{
-			"matches": ["http://www.neogaf.com/forum/newreply.php*", "http://www.neogaf.com/forum/newthread.php*", "http://www.neogaf.com/forum/editpost.php*"],
-			"css": ["style.css"],
-			"js": ["jquery.js", "extension.js"]
-		}
-	]
+	"name": "NeoGAF Messages",
+	"version": "1.1",
+	"description": "Notifies you with a desktop notification whenever you receive a new private message on NeoGAF.",
+	"background_page": "background.html",
+	"permissions": [ "notifications", "http://www.neogaf.com", "http://www.neogaf.com/forum/private.php" ],
+	"icons": { "48": "48.png", "128": "128.png" }
 }
