@@ -1,5 +1,5 @@
 (function() {
-	var url, newPM, checkPMs, closeNotification, found = -1, notification, showing = false;
+	var url, newPM, checkPMs, closeNotification, found = -1, notification;
 	
 	url = 'http://www.neogaf.com/forum/private.php';
 	newPM = '<td class="alt1"><img src="images/neogaf/statusicon/pm_new.gif" alt="" border="0" /></td>';
