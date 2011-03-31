@@ -1,4 +1,4 @@
-# NeoGAF Smilies - Chrome Extension
+# NeoGAF Messages - Chrome Extension
 A just-for-fun extension for the NeoGAF message board that notifies you 
 using desktop ntofications whenever you get a new private message.
 [Chrome Web Store page here.](https://chrome.google.com/webstore/detail/dnpcgfdhjbipikkgnhlnceecljcheghp)
