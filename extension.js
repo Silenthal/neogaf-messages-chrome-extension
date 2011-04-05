@@ -7,7 +7,7 @@
 	// Basically what we're doing here is grabbing the whole PM list page via AJAX (we can use cross-origin XHR 
 	// since we're an extension, neat huh?) and then searching that massive string for a little part that tells us if we
 	// have a new PM or not. Then we display the notification, and set a timeout on that notification closing. Then 
-	// we call ourself after 2 minutes.
+	// we call ourself after a minute.
 	checkPMs = function () {
 		$.get(url, function(data) {
 			found = data.search(newPM);
@@ -17,7 +17,7 @@
 				window.setTimeout(closeNotification, 10000, notification);
 			}
 		}, 'html');
-		window.setTimeout(checkPMs, 120000);
+		window.setTimeout(checkPMs, 60000);
 	};
 	
 	closeNotification = function (n) {
