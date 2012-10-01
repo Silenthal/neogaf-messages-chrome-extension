@@ -1,8 +1,12 @@
 {
-	"name": "NeoGAF Messages",
-	"version": "1.1",
-	"description": "Notifies you with a desktop notification whenever you receive a new private message on NeoGAF.",
-	"background_page": "background.html",
-	"permissions": [ "notifications", "http://www.neogaf.com", "http://www.neogaf.com/forum/private.php" ],
+	"name" : "NeoGAF Messages",
+	"version" : "1.5",
+	"manifest_version" : 2,
+	"description" : "Notifies you with a desktop notification whenever you receive a new private message on NeoGAF.",
+	"background" : 
+	{
+		"page" : "background.html"
+	},
+	"permissions": [ "notifications", "http://www.neogaf.com/", "http://www.neogaf.com/forum/private.php" ],
 	"icons": { "48": "48.png", "128": "128.png" }
 }
