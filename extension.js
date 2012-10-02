@@ -9,15 +9,19 @@ var curUnread = [];
 	
 	// Sets the default options for this extension.
 	setDefaultOptions = function(){
-		// Default update time: 1 minute
-		localStorage.updateTime = 60000;
-		// Default click action: go to newest PM
-		localStorage.toastClickAction = "pm";
-		// Initializing other localStorage options.
-		localStorage.msgCount = 0;
-		localStorage.id = "";
-		localStorage.name = "";
-		localStorage.title = "";
+		var isInit = (localStorage.init == 'true');
+		if (!isInit){
+			localStorage.init = 'true';
+			// Default update time: 1 minute
+			localStorage.updateTime = 60000;
+			// Default click action: go to newest PM
+			localStorage.toastClickAction = "pm";
+			// Initializing other localStorage options.
+			localStorage.msgCount = 0;
+			localStorage.id = "";
+			localStorage.name = "";
+			localStorage.title = "";
+		}
 	}
 	
 	// Combines message details on the PM page into an array of message objects,
