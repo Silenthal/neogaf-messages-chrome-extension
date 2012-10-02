@@ -16,6 +16,8 @@ var curUnread = [];
 			localStorage.updateTime = 60000;
 			// Default click action: go to newest PM
 			localStorage.toastClickAction = "pm";
+			// Default notification type: tell you once
+			localStorage.nagAction = "nagonce";
 			// Initializing other localStorage options.
 			localStorage.msgCount = 0;
 			localStorage.id = "";
@@ -96,20 +98,23 @@ var curUnread = [];
 			});
 			
 			// Then, remove from the "new message list" any messages that have already
-			// been notified about.
-			messageDetails = messageDetails.filter(function(message, index){
-				if (curUnread.indexOf(message.id) === -1)
-				{
-					curUnread.push(message.id);
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			});
+			// been notified about, depending on if the user wants to be told about
+			// it or not.
+			if (localStorage.nagAction == "nagonce"){
+				messageDetails = messageDetails.filter(function(message, index){
+					if (curUnread.indexOf(message.id) === -1)
+					{
+						curUnread.push(message.id);
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				});
+			}
 			
-			// Then, if there are any, make the toast.
+			// Then, if there are any notices to be made, make the toast.
 			if (messageDetails.length !== 0) {
 				localStorage.msgCount = curUnread.length;
 				localStorage.id = messageDetails[0].id;

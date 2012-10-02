@@ -38,9 +38,33 @@ function saveToastClickAction () {
 	localStorage.toastClickAction = tuaSelect.children[tuaSelect.selectedIndex].value;
 }
 
+function loadNagAction () {
+	var naVal = localStorage.nagAction,
+	nagonceRadio = document.getElementById("notify_nagonce"),
+	nagRadio = document.getElementById("notify_nag");
+	if (naVal == nagRadio.value){
+		nagRadio.checked = true;
+	}
+	else if (naVal == nagonceRadio.value){
+		nagonceRadio.checked = true;
+	}
+}
+
+function saveNagAction () {
+	var nagonceRadio = document.getElementById("notify_nagonce"),
+	nagRadio = document.getElementById("notify_nag");
+	if (nagRadio.checked){
+		localStorage.nagAction = nagRadio.value;
+	}
+	else if (nagonceRadio.checked){
+		localStorage.nagAction = nagonceRadio.value;
+	}
+}
+
 function loadOptions () {
 	loadUpdateTime();
 	loadToastClickAction();
+	loadNagAction();
 }
 
 $(document).ready(function () {
@@ -50,5 +74,11 @@ $(document).ready(function () {
 	});
 	$("#toastClickAction").change(function () {
 		saveToastClickAction();
+	});
+	$("#notify_nag").change(function () {
+		saveNagAction();
+	});
+	$("#notify_nagonce").change(function () {
+		saveNagAction();
 	});
 });

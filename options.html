@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>NeoGAF Messages Options</title>
+		<link rel="stylesheet" href="widgets.css">
 		<link rel="stylesheet" href="options.css">
 		<script src="jquery.js"></script>
 	</head>
@@ -15,7 +16,7 @@
 				<h1>Options</h1>
 			</header>
 			<section>
-				<h2>Timing</h2>
+				<h2>Updating</h2>
 				<form>
 					<ul>
 						<li>
@@ -26,6 +27,26 @@
 								<option value=120000>Every 2 minutes</option>
 								<option value=300000>Every 5 minutes</option>
 							</select>
+						</li>
+					</ul>
+				</form>
+			</section>
+			<section>
+				<h2>Behavior</h2>
+				<form>
+					<ul>
+						<li>
+							<label>Notification type:</label>
+							<div class="radiocont">
+								<label>
+									<input type="radio" id="notify_nagonce" name="nagAction" value="nagonce">
+									Once on a new PM
+								</label>
+								<label>
+									<input type="radio" id="notify_nag" name="nagAction" value="nag">
+									Every update period if a new PM exists
+								</label>
+							</div>
 						</li>
 						<li>
 							<label for="toastClickAction">Notification click action:</label>
