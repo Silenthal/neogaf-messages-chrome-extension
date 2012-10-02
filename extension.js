@@ -7,9 +7,13 @@ var curUnread = [];
 	url = 'http://www.neogaf.com/forum/private.php';
 	newPMSelector = 'img[src="images/neogaf/statusicon/pm_new.gif"]';
 	
+	// Sets the default options for this extension.
 	setDefaultOptions = function(){
-		localStorage.updateTime = 120000;
-		localStorage.toastClickAction = "all";
+		// Default update time: 1 minute
+		localStorage.updateTime = 60000;
+		// Default click action: go to newest PM
+		localStorage.toastClickAction = "pm";
+		// Initializing other localStorage options.
 		localStorage.msgCount = 0;
 		localStorage.id = "";
 		localStorage.name = "";
