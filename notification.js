@@ -6,9 +6,11 @@ title = localStorage.title,
 id = localStorage.id,
 clickAction = localStorage.toastClickAction,
 message = document.getElementById("msg"),
+senderSpan = document.getElementById("sender"),
+titleSpan = document.getElementById("title"),
 clickHref = document.getElementById("messageTarget"),
 msg;
-if (count === 1)
+if (count == 1)
 {
 	msg = count + " unread message!";
 }
@@ -16,7 +18,8 @@ else
 {
 	msg = count + " unread messages!";
 }
-msg = msg + ' Latest is from ' + name + ', titled "' + title + '"';
+senderSpan.innerHTML = name;
+titleSpan.innerHTML = title;
 message.innerHTML = msg;
 if (clickAction === "pm"){
 	clickHref.href = pmPage + id;
