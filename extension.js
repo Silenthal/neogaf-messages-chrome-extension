@@ -2,10 +2,19 @@
 var curUnread = [];
 
 (function() {
-	var url, newPMSelector, checkPMs, combineMessages, closeNotification, notification;
+	var url, newPMSelector, setDefaultOptions, checkPMs, combineMessages, closeNotification, notification;
 	
 	url = 'http://www.neogaf.com/forum/private.php';
 	newPMSelector = 'img[src="images/neogaf/statusicon/pm_new.gif"]';
+	
+	setDefaultOptions = function(){
+		localStorage.updateTime = 120000;
+		localStorage.toastClickAction = "all";
+		localStorage.msgCount = 0;
+		localStorage.id = "";
+		localStorage.name = "";
+		localStorage.title = "";
+	}
 	
 	// Combines message details on the PM page into an array of message objects,
 	// containing ID, sender, and message title.
@@ -57,8 +66,8 @@ var curUnread = [];
 	// since we're an extension, neat huh?) and then searching that massive string for the new message details.
 	// Then we display the notification, and set a timeout on that notification closing. Then we call ourself
 	// after a minute.
-	checkPMs = function () {
-		$.get(url, function(data) {
+	checkPMs = function(){
+		$.get(url, function(data){
 			
 			// First, get the new messages (on page 1 of the PM page, that is).
 			var messageDetails = combineMessages(data);
@@ -94,21 +103,23 @@ var curUnread = [];
 			
 			// Then, if there are any, make the toast.
 			if (messageDetails.length !== 0) {
-				localStorage["msgCount"] = curUnread.length;
-				localStorage["id"] = messageDetails[0].id;
-				localStorage["name"] = messageDetails[0].name;
-				localStorage["title"] = messageDetails[0].title;
+				localStorage.msgCount = curUnread.length;
+				localStorage.id = messageDetails[0].id;
+				localStorage.name = messageDetails[0].name;
+				localStorage.title = messageDetails[0].title;
 				notification = webkitNotifications.createHTMLNotification('notification.html');
 				notification.show();
 				window.setTimeout(closeNotification, 10000, notification);
 			}
 		}, 'html');
-		window.setTimeout(checkPMs, 60000);
+		window.setTimeout(checkPMs, localStorage.updateTime);
 	};
 	
-	closeNotification = function (n) {
+	closeNotification = function(n){
 		n.cancel();
 	};
+	
+	setDefaultOptions();
 	
 	checkPMs();
 })();

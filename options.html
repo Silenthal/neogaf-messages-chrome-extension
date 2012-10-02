@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>NeoGAF Messages Options</title>
+		<link rel="stylesheet" href="options.css">
+		<script src="jquery.js"></script>
+	</head>
+	<body>
+		<div id="navblock">
+			<span id="extname">NeoGAF Messages</span>
+			<img src="128.png">
+		</div>
+		<div id="pageblock">
+			<header>
+				<h1>Options</h1>
+			</header>
+			<section>
+				<h2>Timing</h2>
+				<form>
+					<ul>
+						<li>
+							<label for="updateTime">How often messages are checked:</label>
+							<select id="updateTime">
+								<option value=30000>Every 30 seconds</option>
+								<option value=60000>Every minute</option>
+								<option value=120000>Every 2 minutes</option>
+								<option value=300000>Every 5 minutes</option>
+							</select>
+						</li>
+						<li>
+							<label for="toastClickAction">Notification click action:</label>
+							<select id="toastClickAction">
+								<option value="pm">Go to Newest PM</option>
+								<option value="all">Go to PM Page</option>
+							</select>
+						</li>
+					</ul>
+				</form>
+			</section>
+		</div>
+		<script src="options.js"></script>
+	</body>
+</html>

@@ -7,6 +7,8 @@
 	{
 		"page" : "background.html"
 	},
+	"options_page" : "options.html",
 	"permissions": [ "notifications", "http://www.neogaf.com/", "http://www.neogaf.com/forum/private.php" ],
-	"icons": { "48": "48.png", "128": "128.png" }
+	"icons": { "48": "48.png", "128": "128.png" },
+	"web_accessible_resources" : [ "128.png" ]
 }
