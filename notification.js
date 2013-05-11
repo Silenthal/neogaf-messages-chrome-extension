@@ -1,27 +1,25 @@
 (function() {
-	var pmPage = "http://www.neogaf.com/forum/private.php?do=showpm&pmid=",
-		allPage = "http://www.neogaf.com/forum/private.php",
-		count = localStorage.msgCount,
-		senderName = localStorage.name,
-		msgTitle = localStorage.title,
-		msgId = localStorage.id,
+	var pmPage = "http://www.neogaf.com/forum/private.php",
+		msgCount = localStorage.msgCount,
+		senderName = localStorage.senderName,
+		msgTitle = localStorage.msgTitle,
+		msgId = localStorage.msgID,
 		clickAction = localStorage.toastClickAction,
-		message = document.getElementById("msg"),
 		senderSpan = document.getElementById("sender"),
 		titleSpan = document.getElementById("title"),
+		message = document.getElementById("msg"),
 		clickHref = document.getElementById("messageTarget"),
-		msg;
-	if (count == 1) {
-		msg = count + " unread message!";
+		msg = msgCount + " unread message";
+	if (msgCount == 1) {
+		msg += "!";
 	} else {
-		msg = count + " unread messages!";
+		msg += "s!";
 	}
 	senderSpan.innerHTML = senderName;
 	titleSpan.innerHTML = msgTitle;
 	message.innerHTML = msg;
+	clickHref.href = pmPage;
 	if (clickAction === "pm") {
-		clickHref.href = pmPage + msgId;
-	} else if (clickAction === "all") {
-		clickHref.href = allPage;
+		clickHref.href += "?do=showpm&pmid=" + msgId;
 	}
 }());
